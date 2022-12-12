@@ -1,0 +1,24 @@
+To complete the TODOs in this program, the following steps need to be performed:
+
+1 Download and process the dataset:
+* This step involves downloading the dataset (if not already downloaded) and preprocessing it to extract the text data 
+and other relevant information needed for training the language model. This may involve steps such as loading the raw data 
+from a file, cleaning the text data to remove unwanted characters, and splitting the data into train, validation, and test sets.
+2. Preprocess the text data:
+* In this step, the text data needs to be preprocessed and prepared for training the language model. This may involve
+steps such as tokenizing the text, converting the tokens to numerical indices, and padding the sequences to ensure that
+all the input sequences have the same length.
+3. Create the dataset and data generator:
+* In this step, the preprocessed text data needs to be converted into a format that can be used by the language model
+for training and evaluation. This may involve creating a tf.data.Dataset object and using it to create a data generator
+that can be used to feed the data to the model in batches.
+4. Train the language model:
+* In this step, the language model is trained on the train data using the fit() method of the tf.keras.Model class.
+The trained model can then be used to generate text.
+5. Evaluate the language model on the test set:
+* In this step, the trained language model is evaluated on the held-out test set to assess its performance.
+This can be done using the evaluate() method of the tf.keras.Model class.
+6. Fine-tune the language model for a specific task:
+* In this step, the trained language model can be fine-tuned for a specific task, such as text generation or text
+classification, by adding and training additional layers on top of the existing language model. This can be done using
+the add() and fit() methods of the tf.keras.Model class.
