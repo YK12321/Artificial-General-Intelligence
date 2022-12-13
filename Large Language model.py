@@ -50,7 +50,17 @@ seq_len = max(len(s) for s in sequences)
 sequences = text.pad_sequences(sequences, maxlen=seq_len, padding="post")
 
 # Create dataset and data generator
-# TODO
+
+# Create dataset
+dataset = tf.data.Dataset.from_tensor_slices(sequences)
+
+# Create data generator
+data_gen = dataset.batch(BATCH_SIZE)
+
+# Split dataset into train, validation, and test sets
+train_data = data_gen.take(len(sequences) * 0.8)
+val_data = data_gen.skip(len(sequences) * 0.8).take(len(sequences) * 0.1)
+test_data = data_gen.skip(len(sequences) * 0.9)
 
 # Build language model
 model = tf.keras.Sequential()
