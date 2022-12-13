@@ -81,4 +81,35 @@ test_set = tf.data.Dataset.from_tensor_slices(test_data)
 model.evaluate(test_set)
 
 # Fine-tune language model on specific task
+
+# Set task-specific parameters
+TASK_EMBEDDING_DIM = 64
+TASK_LSTM_UNITS = 64
+TASK_BATCH_SIZE = 32
+TASK_EPOCHS = 10
+
+# Download and process task-specific dataset
+# TODO
+
+# Preprocess task-specific data
+# TODO
+
+# Create task-specific dataset and data generator
+# TODO
+
+# Freeze language model layers
+for layer in model.layers[:-2]:
+  layer.trainable = False
+
+# Add task-specific layers
+model.add(Dense(64, activation="relu"))
+model.add(Dense(1, activation="sigmoid"))
+
+# Compile model for specific task
+model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
+
+# Train model for specific task
+history = model.fit(train_data, epochs=TASK_EPOCHS, batch_size=TASK_BATCH_SIZE, validation_data=val_data)
+
+# Evaluate model on specific task
 # TODO
