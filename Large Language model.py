@@ -32,7 +32,22 @@ data = data.lower()
 data = data.split()
 
 # Preprocess text data
-# TODO
+
+# Create tokenizer
+tokenizer = text.Tokenizer()
+tokenizer.fit_on_texts(data)
+
+# Create vocabulary
+vocab_size = len(tokenizer.word_index) + 1
+
+# Convert text to sequences
+sequences = tokenizer.texts_to_sequences(data)
+
+# Get maximum sequence length
+seq_len = max(len(s) for s in sequences)
+
+# Pad sequences
+sequences = text.pad_sequences(sequences, maxlen=seq_len, padding="post")
 
 # Create dataset and data generator
 # TODO
