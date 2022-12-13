@@ -73,7 +73,12 @@ model.compile(loss="sparse_categorical_crossentropy", optimizer="adam")
 history = model.fit(train_data, epochs=EPOCHS, batch_size=BATCH_SIZE, validation_data=val_data)
 
 # Evaluate language model on held-out test set
-# TODO
+
+# Create test set
+test_set = tf.data.Dataset.from_tensor_slices(test_data)
+
+# Evaluate model
+model.evaluate(test_set)
 
 # Fine-tune language model on specific task
 # TODO
