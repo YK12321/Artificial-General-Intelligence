@@ -2,6 +2,7 @@ import os
 import random
 import re
 import string
+import requests
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.preprocessing import text
