@@ -19,7 +19,17 @@ BATCH_SIZE = 64
 EPOCHS = 5
 
 # Download and process dataset
-# TODO
+# Set dataset URL
+url = "https://raw.githubusercontent.com/some/repo/master/data.txt"
+
+# Download dataset
+response = requests.get(url)
+data = response.text
+
+# Process dataset
+data = re.sub(r'[^\w\s]', '', data)
+data = data.lower()
+data = data.split()
 
 # Preprocess text data
 # TODO
